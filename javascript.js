@@ -8,9 +8,9 @@ function createRow(rowNum) {
 }
 
 function createCols(currentRow) {
-  const newRow = document.createElement('div');
-  newRow.classList.add("column");
-  currentRow.appendChild(newRow);
+  const newCol = document.createElement('div');
+  newCol.classList.add("column");
+  currentRow.appendChild(newCol);
 }
 
 function drawGrid(rows, cols) {
@@ -22,12 +22,18 @@ function drawGrid(rows, cols) {
   }
 }
 
+function colorSquare() {
+  this.classList.add("colored");
+}
+
 function main() {
-  const rows = 16;
-  const cols = 16;
+  const rows = 50;
+  const cols = 70;
 
   drawGrid(rows, cols);
-  
+
+  const squares = document.querySelectorAll(".column");
+  squares.forEach(square => square.addEventListener("mousemove", colorSquare));
 }
 
 main();

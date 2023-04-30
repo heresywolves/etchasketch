@@ -18,6 +18,12 @@ body {
   height: 10px;
   border-style: solid;
   border-width: 1px;
+  border-color: rgb(240,240,240);
   flex: 0 0 auto;
+  transition-duration: 0.5s;
+}
+
+.colored {
+  background-color: black;
 }
 

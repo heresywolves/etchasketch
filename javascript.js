@@ -28,7 +28,7 @@ function colorSquare() {
 
 function main() {
   const rows = 50;
-  const cols = 70;
+  const cols = 80;
 
   drawGrid(rows, cols);
 

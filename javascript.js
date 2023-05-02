@@ -23,7 +23,15 @@ function drawGrid(rows, cols) {
 }
 
 function colorSquare() {
-  this.classList.add("colored");
+  if (window.colorMode === false) { 
+    this.style.backgroundColor = 'black';
+  } else {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    console.log(r);
+    this.style.backgroundColor = `rgb(${r},${g},${b})`;
+  };
 }
 
 function deleteDisplay() {
@@ -50,6 +58,8 @@ function addDisplayListener() {
 }
 
 function main() {
+
+  window.colorMode = false;
   const rows = 30;
   const cols = 50;
 
@@ -57,6 +67,12 @@ function main() {
 
   const displayButton = document.querySelector("#left-control");
   displayButton.addEventListener("click", promptDisplaySize);
+
+  const colorButton = document.querySelector("#right-control");
+  colorButton.addEventListener("click", () => {
+    if (window.colorMode) window.colorMode = false;
+    else window.colorMode = true;
+  });
 
   addDisplayListener();
 }

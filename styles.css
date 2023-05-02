@@ -17,23 +17,21 @@ h1 {
 }
 
 .rows {
+  height: 400px;
   display: flex;
   flex-direction: column;
 }
 
 .row {
-  flex: 0 0 auto;
-  height: 10px;
-  width: 10px;
+  flex: 1;
   display: flex;
 }
 
 .column {
-  width: 8px;
-  height: 10px;
+  /*border-style: solid;*/
   border-width: 1px;
   border-color: rgb(240,240,240);
-  flex: 0 0 auto;
+  flex: 1;
   transition-duration: 0.5s;
   background-color: rgb(190,190,190);
 }

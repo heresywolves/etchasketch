@@ -26,14 +26,39 @@ function colorSquare() {
   this.classList.add("colored");
 }
 
+function deleteDisplay() {
+  let rows = document.querySelectorAll(".row");
+  rows.forEach(row => row.remove()); 
+}
+
+function promptDisplaySize() {
+  let displaySize = 0;
+  while (displaySize < 4 || displaySize > 100){
+    displaySize = prompt("Enter the display resolution value. From 4 to 100");
+  }
+  deleteDisplay();
+
+  let rows = displaySize / 2.5; 
+  let cols = displaySize - rows;
+  drawGrid(rows, cols);
+  addDisplayListener();
+}
+
+function addDisplayListener() {
+  const squares = document.querySelectorAll(".column");
+  squares.forEach(square => square.addEventListener("mousemove", colorSquare));
+}
+
 function main() {
-  const rows = 50;
-  const cols = 80;
+  const rows = 30;
+  const cols = 50;
 
   drawGrid(rows, cols);
 
-  const squares = document.querySelectorAll(".column");
-  squares.forEach(square => square.addEventListener("mousemove", colorSquare));
+  const displayButton = document.querySelector("#left-control");
+  displayButton.addEventListener("click", promptDisplaySize);
+
+  addDisplayListener();
 }
 
 main();

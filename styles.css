@@ -61,4 +61,22 @@ h1 {
   justify-content: space-between;
 }
 
+.instructions {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  display: flex;
+  gap: 290px;
+}
 
+#right-control.toggle {
+  background-color: rgb(253,255,181);
+}
+
+#center-control {
+  font-size: 9px;
+  width: 50px;
+  background-color: rgb(150,150,150);
+  margin: 0px 110px 0 110px;
+  flex: 0;
+  align-self: end;
+}

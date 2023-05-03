@@ -29,7 +29,6 @@ function colorSquare() {
     let r = Math.floor(Math.random() * 256);
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
-    console.log(r);
     this.style.backgroundColor = `rgb(${r},${g},${b})`;
   };
 }
@@ -57,6 +56,13 @@ function addDisplayListener() {
   squares.forEach(square => square.addEventListener("mousemove", colorSquare));
 }
 
+function clearDisplay() {
+  const squares = document.querySelectorAll(".column");
+  squares.forEach(square => {
+    square.style.backgroundColor = 'rgb(190,190,190)';
+  })
+}
+
 function main() {
 
   window.colorMode = false;
@@ -70,11 +76,22 @@ function main() {
 
   const colorButton = document.querySelector("#right-control");
   colorButton.addEventListener("click", () => {
-    if (window.colorMode) window.colorMode = false;
-    else window.colorMode = true;
+    if (window.colorMode) {
+      window.colorMode = false;
+      colorButton.classList.remove("toggle");
+    }
+    else {
+      window.colorMode = true;
+      colorButton.classList.add("toggle");
+    }
   });
 
+  const clearButton = document.querySelector("#center-control");
+  clearButton.addEventListener("click", clearDisplay);
+
   addDisplayListener();
+
 }
+
 
 main();
